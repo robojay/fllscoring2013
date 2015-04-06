@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html manifest="scoring2013.manifest">
+<head>
+    <title>FLL 2013 - Nature's Fury</title>
+    <!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" / -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.1" />
+    <meta name="apple-mobile-web-app-capable" content="YES" />
+    <link rel="apple-touch-icon" href="icon.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="reset.css" type="text/css" media="screen, projection" />
+
+    <link rel="stylesheet" media="all" href="scoring2013_land.css">
+
+    <!-- If you're here and have IE9, remove the exceptions let me know if the HTML5/CSS3 goodies work -->
+    <!-- Thanks... jayfrancis@aol.com -->
+
+    <!--[if !IE]><!-->
+    <link rel="stylesheet" media="all and (orientation:portrait)" href="scoring2013_port.css">
+    <link rel="stylesheet" media="all and (orientation:landscape)" href="scoring2013_land.css">
+    <link rel="stylesheet" media="all and (max-device-width: 480px)" href="scoring2013_narrow.css">
+    <!--<![endif]-->    
+    
+    <script language="javascript" type="text/javascript" src="fllScoring2013.js"></script>
+</head>
+<body onload="reset();">
+    <div id="main">
+        <div id="timerText">2:30</div>
+        <button id="startStopButton" type="button" value="start" onclick="timerToggle();">Start</button>
+        <button id="resetButton" type="reset" value="reset" onclick="reset();">Reset</button>
+        <div id="countUp"><input id="countUpButton" type="radio" value="up" onchange="countDirectionChange('up');"/>Count Up</div>
+        <div id="countDown"><input id="countDownButton" type="radio" value="down" onclick="countDirectionChange('down');"/>Count Down</div>
+        <div id="scoreBlock">
+            Score: <div id="scoreText">0</div>
+        </div>
+        <div id="box1">
+            <div id="box1Label" class="BoxLabel">1</div>
+            <div id="box1Title" class="BoxTitle">Tree Branch</div>
+            <div id="box1Item1" class="BoxItem1">Branch closer to mat than cables</div>
+            <select id="treeBranchLower" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+            <div id="box1Item2" class="BoxItem2">Tree/cables upright, touching mat</div>
+            <select id="treeCableModelsUpright" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div id="box2">
+            <div id="box2Label" class="BoxLabel">2</div>
+            <div id="box2Title" class="BoxTitle">House Lift</div>
+            <div id="box2Item1" class="BoxItem1">House locked in high position</div>
+            <select id="houseLifted" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div id="box3">
+            <div id="box3Label" class="BoxLabel">3</div>
+            <div id="box3Title" class="BoxTitle">Progress</div>
+            <div id="box3Item1" class="BoxItem1">Colors reached</div>
+            <select id="progressPointerNumberOfColorsReached" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+                <option value="16">16</option>
+            </select>
+        </div>
+        <div id="box4">
+            <div id="box4Label" class="BoxLabel">4</div>
+            <div id="box4Title" class="BoxTitle">Base Isolation Test</div>
+            <div id="box4Item1" class="BoxItem1">West tan building undamaged</div>
+            <select id="baseIsolationWestUndamaged" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+            <div id="box4Item2" class="BoxItem2">East tan building damaged</div>
+            <select id="baseIsolationEastDamaged" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div id="box5">
+            <div id="box5Label" class="BoxLabel">5</div>
+            <div id="box5Title" class="BoxTitle">Construction Relocation</div>
+            <div id="box5Item1" class="BoxItem1">Gray Buildings in Lt Green</div>
+            <select id="grayBuildingUnitsInLtGreen" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div id="box6">
+            <div id="box6Label" class="BoxLabel">6</div>
+            <div id="box6Title" class="BoxTitle">Supply Truck</div>
+            <div id="box6Item1" class="BoxItem1">Truck touching Yellow/Lt Blue</div>
+             <select id="supplyTruckInYellow" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div id="box7">
+            <div id="box7Label" class="BoxLabel">7</div>
+            <div id="box7Title" class="BoxTitle">Ambulance</div>
+            <div id="box7Item1" class="BoxItem1">In Yellow, wheels touching mat</div>
+            <select id="ambulanceInYellowWheelsTouchingMat" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div id="box8">
+            <div id="box8Label" class="BoxLabel">8</div>
+            <div id="box8Title" class="BoxTitle">Cargo Plane</div>
+            <div id="box8Item1" class="BoxItem1">Plane Location</div>
+            <select id="cargoPlaneLocation" class="SelectionBox" onchange="update();">
+                <option value="lightBlue">Lt Blue</option>
+                <option value="yellowOnly">Yellow</option>
+                <option value="neitherYellowNorLtBlue">Neither</option>
+            </select>
+        </div>
+        <div id="box9">
+            <div id="box9Label" class="BoxLabel">9</div>
+            <div id="box9Title" class="BoxTitle">Penalties</div>
+            <div id="box9Item1" class="BoxItem1">Penalties (touch/sprawl) assessed</div>
+            <select id="penaltyTouchSprawl" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <div id="box9Item2" class="BoxItem2">Small junk penalties</div>
+            <select id="penaltySmallJunk" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+            <div id="box9Item3" class="BoxItem3">Large junk penalties</div>
+            <select id="penaltyLargeJunk" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+            </select>
+        </div>
+        <div id="box10">
+            <div id="box10Label" class="BoxLabel">10</div>
+            <div id="box10Title" class="BoxTitle">Runway</div>
+            <div id="box10Item1" class="BoxItem1">Nothing but waves/plane on runway</div>
+            <select id="runwayClearExceptWavesOrPlane" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div id="box11">
+            <div id="box11Label" class="BoxLabel">11</div>
+            <div id="box11Title" class="BoxTitle">Evacuation Sign</div>
+            <div id="box11Item1" class="BoxItem1">Sign is up, no strategic touching</div>
+            <select id="evacutationSignUp" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div id="box12">
+            <div id="box12Label" class="BoxLabel">12</div>
+            <div id="box12Title" class="BoxTitle">Code Construction</div>
+            <div id="box12Item1" class="BoxItem1">Tallest building in Pink Region</div>
+            <select id="tallestBuildingInPink" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div id="box13">
+            <div id="box13Label" class="BoxLabel">13</div>
+            <div id="box13Title" class="BoxTitle">Family</div>
+            <div id="box13Item1" class="BoxItem1">People in single colored Region</div>
+            <select id="familyTogether" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <div id="box13Item2" class="BoxItem2">People with bottled water</div>
+            <select id="peopleWithWater" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <div id="box13Item3" class="BoxItem3">People in the Yellow Region</div>
+            <select id="peopleInYellow" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <div id="box13Item4" class="BoxItem4">People in the Red Region</div>
+            <select id="peopleInRed" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+            <div id="box13Item5" class="BoxItem5">Pets in Regions containing People</div>
+            <select id="petsWithPeople" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+            </select>
+        </div>
+        <div id="box14">
+            <div id="box14Label" class="BoxLabel">14</div>
+            <div id="box14Title" class="BoxTitle">Supplies and Equipments</div>
+            <div id="box14Item1" class="BoxItem1">Non-water items in Yellow Region</div>
+            <select id="suppliesInYellow" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <div id="box14Item2" class="BoxItem2">Non-water items in Red Region</div>
+            <select id="suppliesInRed" class="ScoreBox" onchange="update();">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+        </div>
+        <div id="box15">
+            <div id="box15Label" class="BoxLabel">15</div>
+            <div id="box15Title" class="BoxTitle">Safe Place</div>
+            <div id="box15Item1" class="BoxItem1">Robot in Red at end of match</div>
+            <select id="robotInRed" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div id="box16">
+            <div id="box16Label" class="BoxLabel">16</div>
+            <div id="box16Title" class="BoxTitle">Obstacles</div>
+            <div id="box16Item1" class="BoxItem1">Best result achieved</div>
+            <select id="furthestRegionEntered" class="SelectionBox" onchange="update();">
+                <option value="none">None</option>
+                <option value="darkBlue">Dk Blue</option>
+                <option value="darkGreen">Dk Green</option>
+                <option value="purple">Purple</option>
+                <option value="red">Red</option>
+            </select>
+        </div>
+        <div id="box17">
+            <div id="box17Label" class="BoxLabel">17</div>
+            <div id="box17Title" class="BoxTitle">Tsunami</div>
+            <div id="box17Item1" class="BoxItem1">All three waves touching mat</div>
+            <select id="tsunamiWavesTouchingMat" class="YesNoBox" onchange="update();">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+            </select>
+        </div>
+        <div id="version" onclick="getInfo();">V0.5</div>
+    </div>
+</body>
+</html>

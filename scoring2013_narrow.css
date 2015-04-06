@@ -1,0 +1,472 @@
+body {
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+}
+
+#main {
+    position: absolute;
+    background-image: url('FLL2013_Score_Sheet_narrow.png');
+    background-repeat: no-repeat;
+    width: 480px;
+    height: 2935px;
+    top: 0px;
+    left: 0px;
+    z-index: 0;
+}
+
+#version {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    font-size: 0.4em;
+    text-decoration: underline;
+}
+
+.ScoreBox {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.YesNoBox {
+    position: absolute;
+    width: 80px;
+    height: 40px;
+    font-size: 1.25em;
+}
+
+.SelectionBox {
+    position: absolute;
+    width: 150px;
+    height: 40px;
+    font-size: 1.25em;
+}
+
+#timerText {
+    position: absolute;
+    color: red;
+    line-height: 1;
+    font-size: 10em;
+    width: 325px;
+    height: 150px;
+    text-align: left;
+    top: 10px;
+    left: 10px;
+    padding: 0px;
+    margin: 0px;
+}
+
+#startStopButton {
+    position: absolute;
+    width: 150px;
+    height: 75px;
+    top: 175px;
+    left: 20px;
+    font-size: 2em;
+}
+
+#countUp {
+    position: absolute;
+    width: 110px;
+    height: 25px;
+    top: 40px;
+    left: 350px;
+    display: inline;
+    font-size: 1em;
+}
+
+#countDown {
+    position: absolute;
+    width: 110px;
+    height: 25px;
+    top: 100px;
+    left: 350px;
+    display: inline;
+    font-size: 1em;
+}
+
+#resetButton {
+    position: absolute;
+    width: 150px;
+    height: 75px;
+    top: 175px;
+    left: 310px;
+    font-size: 2em;
+}
+
+#scoreBlock {
+    position: absolute;
+    width: 400px;
+    height: 100px;
+    text-align: center;
+    color: blue;
+    font-size: 5em;
+    top: 250px;
+    left: 40px;
+}
+
+#scoreText {
+    display: inline;
+}
+
+.BoxLabel {
+    position: absolute;
+    border: 1px solid black;
+    height: 30px;
+    width: 30px;
+    border-radius: 30px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    background-color: white;
+    font-size: 1em;
+    top: 35px;
+    left: -15px;
+}
+
+.BoxTitle {
+    position: absolute;
+    top: 0px;
+    left: 20px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+.BoxItem1 {
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    font-size: 1.25em;
+}
+
+.BoxItem2 {
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    font-size: 1.25em;
+}
+
+.BoxItem3 {
+    position: absolute;
+    top: 150px;
+    left: 30px;
+    font-size: 1.25em;
+}
+
+.BoxItem4 {
+    position: absolute;
+    top: 200px;
+    left: 30px;
+    font-size: 1.25em;
+}
+
+.BoxItem5 {
+    position: absolute;
+    top: 250px;
+    left: 30px;
+    font-size: 1.25em;
+}
+
+#box1 {
+    position: absolute;
+    top: 375px;
+    left: 20px;
+    width: 440px;
+    height: 155px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+
+#treeBranchLower {
+    top: 50px;
+    left: 350px;
+}
+
+#treeCableModelsUpright {
+    top: 100px;
+    left: 350px;
+}
+
+#box2 {
+    position: absolute;
+    top: 555px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#houseLifted {
+    top: 50px;
+    left: 350px;
+}
+
+#box3 {
+    position: absolute;
+    top: 685px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#progressPointerNumberOfColorsReached {
+    top: 50px;
+    left: 350px;
+}
+
+#box4 {
+    position: absolute;
+    top: 815px;
+    left: 20px;
+    width: 440px;
+    height: 155px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#baseIsolationWestUndamaged {
+    top: 50px;
+    left: 350px;
+}
+
+#baseIsolationEastDamaged {
+    top: 100px;
+    left: 350px;
+}
+
+#box5 {
+    position: absolute;
+    top: 995px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#grayBuildingUnitsInLtGreen {
+    top: 50px;
+    left: 350px;
+}
+
+#box6 {
+    position: absolute;
+    top: 1125px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#supplyTruckInYellow {
+    top: 50px;
+    left: 350px;
+}
+
+#box7 {
+    position: absolute;
+    top: 1255px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#ambulanceInYellowWheelsTouchingMat {
+    top: 50px;
+    left: 350px;
+}
+
+#box8 {
+    position: absolute;
+    top: 1385px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#cargoPlaneLocation {
+    top: 50px;
+    left: 280px;
+}
+
+#box9 {
+    position: absolute;
+    top: 1515px;
+    left: 20px;
+    width: 440px;
+    height: 210px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#penaltyTouchSprawl {
+    top: 50px;
+    left: 350px;
+}
+
+#penaltySmallJunk {
+    top: 100px;
+    left: 350px;
+}
+
+#penaltyLargeJunk {
+    top: 150px;
+    left: 350px;
+}
+
+#box10 {
+    position: absolute;
+    top: 1750px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#runwayClearExceptWavesOrPlane {
+    top: 50px;
+    left: 350px;
+}
+
+#box11 {
+    position: absolute;
+    top: 1880px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#evacutationSignUp {
+    top: 50px;
+    left: 350px;
+}
+
+#box12 {
+    position: absolute;
+    top: 2010px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#tallestBuildingInPink {
+    top: 50px;
+    left: 355px;
+}
+
+#box13 {
+    position: absolute;
+    top: 2140px;
+    left: 20px;
+    width: 440px;
+    height: 305px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#familyTogether {
+    top: 50px;
+    left: 350px;
+}
+
+#peopleWithWater {
+    top: 100px;
+    left: 350px;
+}
+
+#peopleInYellow {
+    top: 150px;
+    left: 350px;
+}
+
+#peopleInRed {
+    top: 200px;
+    left: 350px;
+}
+
+#petsWithPeople {
+    top: 250px;
+    left: 350px;
+}
+
+#box14 {
+    position: absolute;
+    top: 2470px;
+    left: 20px;
+    width: 440px;
+    height: 155px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#suppliesInYellow {
+    top: 50px;
+    left: 350px;
+}
+
+#suppliesInRed {
+    top: 100px;
+    left: 350px;
+}
+
+#box15 {
+    position: absolute;
+    top: 2650px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#robotInRed {
+    top: 50px;
+    left: 350px;
+}
+
+#box16 {
+    position: absolute;
+    top: 2780px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#furthestRegionEntered {
+    top: 50px;
+    left: 280px;
+}
+
+#box17 {
+    position: absolute;
+    top: 2910px;
+    left: 20px;
+    width: 440px;
+    height: 105px;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#tsunamiWavesTouchingMat {
+    top: 50px;
+    left: 350px;
+}
+
